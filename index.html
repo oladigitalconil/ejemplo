@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E3A5B" id="tc">
+<meta name="description" content="" id="md">
+<title>Carta</title>
+<!-- PLANTILLA PRO · OLA DIGITAL
+     PARA CADA BAR: edita SOLO el bloque BAR que hay más abajo, en la zona del código. Es un único archivo, sin instalar nada.
+     Incluye: portada con foto, estado "abierto ahora", horario semanal, buscador, 14 alérgenos,
+     precios por formato (tapa/ración), fotos por plato, idiomas, SEO para Google y avisos del día. -->
+<style>
+:root{--fondo:#FAF7F1;--texto:#1c2730;--suave:#5b6a74;--principal:#0E3A5B;--acento:#F0A91F;--linea:#e4dfd3;--panel:#fff;
+--tit:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--cuerpo:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fondo);color:var(--texto);font:400 17px/1.5 var(--cuerpo)}
+.w{max-width:720px;margin:0 auto;padding:0 20px}
+header{position:relative;color:#fff;background:var(--principal) center/cover;padding:calc(46px + env(safe-area-inset-top,0px)) 0 30px;overflow:hidden}
+header.foto::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.3),rgba(0,0,0,.7))}
+header .w{position:relative}
+.logo{width:80px;height:80px;border-radius:50%;background:#fff;object-fit:contain;padding:7px;display:block;margin-bottom:16px}
+h1{font:800 clamp(34px,9vw,54px)/1.02 var(--tit);letter-spacing:-.02em;margin:0}
+.lema{margin:10px 0 0;font-size:18px;opacity:.93;max-width:34ch}
+.fila{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:20px}
+.estado{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14.5px;background:rgba(255,255,255,.18);padding:6px 14px;border-radius:999px}
+.estado i{width:9px;height:9px;border-radius:50%;background:#4ade80}.estado.c i{background:#f87171}
+.idiomas{display:flex;gap:6px}
+.idiomas button{border:1.5px solid rgba(255,255,255,.75);background:transparent;color:#fff;border-radius:999px;padding:5px 13px;font:600 14px var(--cuerpo);cursor:pointer}
+.idiomas button[aria-pressed=true]{background:var(--acento);border-color:var(--acento);color:#1c2730}
+nav{position:sticky;top:0;z-index:5;background:var(--fondo);border-bottom:1px solid var(--linea);padding-top:env(safe-area-inset-top,0px)}
+nav .w{display:flex;gap:8px;overflow-x:auto;padding-top:11px;padding-bottom:11px;scrollbar-width:none}
+nav a{white-space:nowrap;text-decoration:none;color:var(--principal);font-weight:600;font-size:15px;padding:7px 16px;border-radius:999px;border:1.5px solid var(--linea);background:var(--panel)}
+nav a.on{background:var(--principal);border-color:var(--principal);color:#fff}
+.dest{margin:24px 0 0;padding:16px 18px;border-left:5px solid var(--acento);background:var(--panel);border-radius:0 14px 14px 0}
+.dest b{font:700 19px var(--tit);display:block;color:var(--principal)}
+.dest span{color:var(--suave);font-size:15.5px}
+.buscar{margin:22px 0 0}
+.buscar input{width:100%;font:500 16px var(--cuerpo);padding:13px 16px;border-radius:14px;border:1.5px solid var(--linea);background:var(--panel);color:var(--texto)}
+.buscar input:focus{border-color:var(--principal);outline:0}
+section{padding-top:34px}
+section h2{font:800 30px/1.1 var(--tit);color:var(--principal);margin:0 0 4px;letter-spacing:-.01em}
+.nota{margin:0 0 6px;color:var(--suave);font-size:15px}
+.plato{display:flex;gap:14px;align-items:flex-start;padding:17px 0;border-bottom:1px solid var(--linea)}
+.plato .t{flex:1;min-width:0}
+.plato b{display:block;font-weight:600;font-size:17.5px;line-height:1.3}
+.plato .d{display:block;font-size:15px;color:var(--suave);margin-top:3px}
+.plato .pr{text-align:right;font-weight:600;white-space:nowrap;font-size:16.5px}
+.plato .pr small{display:block;font-weight:400;font-size:13px;color:var(--suave)}
+.plato img{width:92px;height:92px;object-fit:cover;border-radius:14px;flex:none}
+.tag{display:inline-block;font-size:12.5px;font-weight:600;color:var(--principal);background:color-mix(in srgb,var(--acento) 32%,transparent);border-radius:6px;padding:1px 8px;margin:7px 6px 0 0}
+.al{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.al span{font-size:15px;line-height:1;background:color-mix(in srgb,var(--principal) 9%,transparent);border-radius:8px;padding:4px 6px}
+.agotado{opacity:.5}.agotado b{text-decoration:line-through}
+.vacio{display:none;text-align:center;color:var(--suave);padding:40px 0}
+.leyenda{margin-top:34px;background:var(--panel);border:1px solid var(--linea);border-radius:14px;padding:16px 18px;font-size:14.5px;color:var(--suave)}
+.leyenda summary{cursor:pointer;font-weight:600;color:var(--texto)}
+.leyenda ul{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 14px}
+.leyenda p{margin:12px 0 0}
+footer{margin-top:40px;background:var(--principal);color:#fff;padding:34px 0 calc(44px + env(safe-area-inset-bottom,0px))}
+footer h2{font:800 26px var(--tit);margin:0 0 12px}
+footer p{margin:4px 0;opacity:.94}
+.hor{width:100%;max-width:340px;border-collapse:collapse;margin:14px 0 4px;font-size:15px}
+.hor td{padding:5px 0;border-bottom:1px solid rgba(255,255,255,.18)}.hor td:last-child{text-align:right}
+.hor tr.hoy{font-weight:700;color:var(--acento)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btns a{text-decoration:none;font-weight:600;padding:12px 20px;border-radius:999px;border:1.5px solid rgba(255,255,255,.75);color:#fff}
+.btns a.main{background:var(--acento);border-color:var(--acento);color:#1c2730}
+.cred{margin-top:26px;font-size:13px;opacity:.7}.cred a{color:inherit}
+:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
+@media(max-width:480px){.plato img{width:76px;height:76px}.leyenda ul{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header id="cab"><div class="w" id="cabw"></div></header>
+<nav aria-label="Categorías"><div class="w" id="nav"></div></nav>
+<main class="w" id="carta"></main>
+<footer><div class="w" id="pie"></div></footer>
+
+<script>
+/* ================= EDITA SOLO ESTE BLOQUE PARA CADA BAR ================= */
+const TODOS = [["12:00", "23:30"]];   // franja de apertura; usa [] para día cerrado; dos franjas: [["13:00","16:00"],["20:00","23:30"]]
+
+const BAR = {
+  nombre: "Chiringuito La Cala",
+  lema: { es: "Pescado fresco frente al mar", en: "Fresh fish by the sea", de: "Frischer Fisch am Meer" },
+  portada: "",                         // opcional: foto de portada (ruta o URL)
+  logo: "",                            // opcional: logo (ruta o URL)
+  colores: { fondo: "#FAF7F1", texto: "#1c2730", principal: "#0E3A5B", acento: "#F0A91F" },
+  fuentes: { titulos: "Bricolage Grotesque", cuerpo: "Public Sans" },   // cualquier fuente de Google Fonts
+
+  idiomas: ["es", "en", "de"],         // se muestra el del móvil del cliente si está en la lista
+  idiomaInicial: "es",
+  supabase: { url: "https://buggvkuvmxfejsfkpzuw.supabase.co", key: "sb_publishable_ymzzeN53rCLy73kavlUMqw_QtxybL9a", slug: "demo" },   // panel de administración: url y clave pública de Supabase; el slug también puede ir en la dirección (?bar=nombre-del-bar)
+  hoja: "",                            // enlace CSV de la hoja de Google (ver instrucciones). Si lo rellenas, el dueño edita la carta desde la hoja
+
+  contacto: {
+    telefono: "600000000",             // "" para ocultar
+    whatsapp: "34600000000",           // con prefijo y sin "+"; "" para ocultar
+    direccion: "Calle del Mar 1, Conil de la Frontera",
+    mapa: "https://maps.google.com/?q=Conil+de+la+Frontera",
+    instagram: "",
+    web: ""                            // dirección final de esta página (mejora el SEO)
+  },
+  // Domingo, lunes, martes, miércoles, jueves, viernes, sábado
+  horario: [TODOS, [], TODOS, TODOS, TODOS, TODOS, TODOS],
+
+  destacado: {                         // aviso del día; borra el bloque o pon null para ocultarlo
+    titulo: { es: "Hoy en pizarra", en: "Today's special", de: "Heute auf der Tafel" },
+    texto: { es: "Urta a la roteña, hasta fin de existencias.", en: "Urta a la roteña, while stocks last.", de: "Urta a la roteña, solange der Vorrat reicht." }
+  },
+  aviso: {
+    es: "Si tienes alergias o intolerancias, díselo a nuestro equipo antes de pedir.",
+    en: "If you have allergies or intolerances, please tell our staff before ordering.",
+    de: "Bei Allergien oder Unverträglichkeiten informieren Sie bitte vor der Bestellung unser Team."
+  },
+
+  /* Platos: nombre, desc, precio ("9,00") o precios [["Tapa","3,50"],["Ración","8,00"]],
+     foto, etiquetas ["recomendado","nuevo","vegetariano","picante"], alergenos, agotado: true */
+  categorias: [
+    { nombre: { es: "Para picar", en: "Starters", de: "Vorspeisen" },
+      nota: { es: "Ideales para compartir", en: "Perfect to share", de: "Ideal zum Teilen" }, platos: [
+      { nombre: { es: "Tortillitas de camarones", en: "Shrimp fritters", de: "Garnelenküchlein" },
+        desc: { es: "Crujientes, hechas al momento", en: "Crispy, made to order", de: "Knusprig, frisch gemacht" },
+        precios: [["Tapa", "3,50"], ["Ración", "9,00"]], etiquetas: ["recomendado"], alergenos: ["gluten", "crustaceos"] },
+      { nombre: { es: "Ensaladilla de la casa", en: "House Russian salad", de: "Russischer Salat" },
+        desc: { es: "Con atún y huevo cocido", en: "With tuna and boiled egg", de: "Mit Thunfisch und Ei" },
+        precio: "7,50", alergenos: ["huevos", "pescado"] },
+      { nombre: { es: "Papas aliñás", en: "Dressed potatoes", de: "Kartoffelsalat andalusisch" },
+        desc: { es: "Con melva y cebolleta", en: "With mackerel and spring onion", de: "Mit Makrele und Frühlingszwiebel" },
+        precio: "8,00", etiquetas: ["nuevo"], alergenos: ["pescado"] }
+    ]},
+    { nombre: { es: "Del mar", en: "From the sea", de: "Aus dem Meer" }, platos: [
+      { nombre: { es: "Atún rojo de almadraba", en: "Almadraba bluefin tuna", de: "Roter Thunfisch" },
+        desc: { es: "A la plancha con sal en escamas", en: "Grilled, with flaked salt", de: "Gegrillt, mit Salzflocken" },
+        precio: "19,00", etiquetas: ["recomendado"], alergenos: ["pescado"] },
+      { nombre: { es: "Fritura de pescado", en: "Fried fish platter", de: "Frittierte Fischplatte" },
+        desc: { es: "Pescado del día para compartir", en: "Fish of the day, to share", de: "Fisch des Tages zum Teilen" },
+        precio: "16,50", alergenos: ["gluten", "pescado", "moluscos"] },
+      { nombre: { es: "Choco a la plancha", en: "Grilled cuttlefish", de: "Gegrillter Tintenfisch" },
+        desc: { es: "Con ajo y perejil", en: "With garlic and parsley", de: "Mit Knoblauch und Petersilie" },
+        precio: "14,00", alergenos: ["moluscos"], agotado: true }
+    ]},
+    { nombre: { es: "Bebidas", en: "Drinks", de: "Getränke" }, platos: [
+      { nombre: { es: "Caña", en: "Draught beer", de: "Fassbier" }, precio: "1,80", alergenos: ["gluten"] },
+      { nombre: { es: "Tinto de verano", en: "Red wine with lemonade", de: "Rotwein mit Limonade" }, precio: "3,50", alergenos: ["sulfitos"] },
+      { nombre: { es: "Fino", en: "Sherry (fino)", de: "Sherry (Fino)" },
+        desc: { es: "Copa de vino de Jerez", en: "Glass of Jerez wine", de: "Glas Jerez-Wein" }, precio: "2,50", alergenos: ["sulfitos"] }
+    ]}
+  ]
+};
+
+/* Textos fijos (para añadir un idioma, copia una línea y tradúcela) */
+const UI = {
+  es: { recomendado: "★ Recomendado", nuevo: "Novedad", vegetariano: "Vegetariano", picante: "Picante", agotado: "Agotado", buscar: "Buscar en la carta…", vacio: "No hay platos con esa búsqueda.", abierto: "Abierto ahora", hasta: "hasta", cerrado: "Cerrado ahora", horario: "Horario", donde: "Dónde estamos", llamar: "Llamar", wa: "WhatsApp", ir: "Cómo llegar", ig: "Instagram", aler: "Alérgenos" },
+  en: { recomendado: "★ Recommended", nuevo: "New", vegetariano: "Vegetarian", picante: "Spicy", agotado: "Sold out", buscar: "Search the menu…", vacio: "No dishes match your search.", abierto: "Open now", hasta: "until", cerrado: "Closed now", horario: "Opening hours", donde: "Find us", llamar: "Call", wa: "WhatsApp", ir: "Directions", ig: "Instagram", aler: "Allergens" },
+  de: { recomendado: "★ Empfohlen", nuevo: "Neu", vegetariano: "Vegetarisch", picante: "Scharf", agotado: "Ausverkauft", buscar: "In der Karte suchen…", vacio: "Keine Gerichte gefunden.", abierto: "Jetzt geöffnet", hasta: "bis", cerrado: "Jetzt geschlossen", horario: "Öffnungszeiten", donde: "So finden Sie uns", llamar: "Anrufen", wa: "WhatsApp", ir: "Route", ig: "Instagram", aler: "Allergene" }
+};
+/* Los 14 alérgenos de declaración obligatoria: clave | icono | español | inglés | alemán */
+const ALER = Object.fromEntries(["gluten|🌾|Gluten|Gluten|Gluten", "crustaceos|🦐|Crustáceos|Crustaceans|Krebstiere", "huevos|🥚|Huevos|Eggs|Eier", "pescado|🐟|Pescado|Fish|Fisch", "cacahuetes|🥜|Cacahuetes|Peanuts|Erdnüsse", "soja|🫘|Soja|Soy|Soja", "lacteos|🥛|Lácteos|Milk|Milch", "frutos_secos|🌰|Frutos de cáscara|Tree nuts|Schalenfrüchte", "apio|🥬|Apio|Celery|Sellerie", "mostaza|🌭|Mostaza|Mustard|Senf", "sesamo|⚪|Sésamo|Sesame|Sesam", "sulfitos|🍷|Sulfitos|Sulphites|Sulfite", "altramuces|🌼|Altramuces|Lupin|Lupinen", "moluscos|🐚|Moluscos|Molluscs|Weichtiere"].map(s => { const a = s.split("|"); return [a[0], { i: a[1], es: a[2], en: a[3], de: a[4] }]; }));
+/* ======================================================================== */
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const nav2 = (navigator.language || "es").slice(0, 2);
+let lang = BAR.idiomas.includes(nav2) ? nav2 : (BAR.idiomaInicial || BAR.idiomas[0]);
+const t = o => o == null ? "" : typeof o === "string" ? o : (o[lang] || o.es || Object.values(o)[0] || "");
+const ui = k => (UI[lang] && UI[lang][k]) || UI.es[k];
+const al = k => ALER[k] ? (ALER[k][lang] || ALER[k].es) : k;
+const R = document.documentElement.style;
+Object.entries(BAR.colores).forEach(([k, v]) => R.setProperty("--" + k, v));
+$("tc").content = BAR.colores.principal;
+if (BAR.fuentes) {
+  const f = n => n.trim().replace(/ /g, "+");
+  const l = document.createElement("link"); l.rel = "stylesheet";
+  l.href = "https://fonts.googleapis.com/css2?family=" + f(BAR.fuentes.titulos) + ":wght@600;700;800&family=" + f(BAR.fuentes.cuerpo) + ":wght@400;500;600&display=swap";
+  document.head.appendChild(l);
+  R.setProperty("--tit", `"${BAR.fuentes.titulos}",system-ui,sans-serif`); R.setProperty("--cuerpo", `"${BAR.fuentes.cuerpo}",system-ui,sans-serif`);
+}
+const hm = s => { const a = s.split(":"); return +a[0] * 60 + +a[1]; };
+function abierto() {
+  const d = new Date(), m = d.getHours() * 60 + d.getMinutes(), r = (BAR.horario || [])[d.getDay()] || [];
+  for (const [a, b] of r) { let s = hm(a), e = hm(b); if (e <= s) e += 1440; if (m >= s && m < e) return b; }
+  return null;
+}
+function precio(p) {
+  const fila = (e, v) => `${esc(v)} €` + (e ? `<small>${esc(t(e))}</small>` : "");
+  if (p.precios) return p.precios.map(x => `<div>${fila(x[0], x[1])}</div>`).join("");
+  return p.precio ? fila("", p.precio) : "";
+}
+function pintar() {
+  const c = BAR.contacto, usados = new Set();
+  document.documentElement.lang = lang; document.title = BAR.nombre;
+  $("md").content = BAR.nombre + " · " + t(BAR.lema);
+  const cab = $("cab"); cab.className = BAR.portada ? "foto" : "";
+  cab.style.backgroundImage = BAR.portada ? `url("${BAR.portada}")` : "";
+  const fin = BAR.horario ? abierto() : null;
+  $("cabw").innerHTML =
+    (BAR.logo ? `<img class="logo" src="${esc(BAR.logo)}" alt="">` : "") + `<h1>${esc(BAR.nombre)}</h1>` +
+    (BAR.lema ? `<p class="lema">${esc(t(BAR.lema))}</p>` : "") + `<div class="fila">` +
+    (BAR.horario ? `<span class="estado ${fin ? "" : "c"}"><i></i>${esc(fin ? ui("abierto") + " · " + ui("hasta") + " " + fin : ui("cerrado"))}</span>` : "") +
+    (BAR.idiomas.length > 1 ? `<div class="idiomas" role="group" aria-label="Idioma">` + BAR.idiomas.map(l => `<button data-l="${l}" aria-pressed="${l === lang}">${l.toUpperCase()}</button>`).join("") + `</div>` : "") + `</div>`;
+  $("nav").innerHTML = BAR.categorias.map((k, i) => `<a href="#c${i}">${esc(t(k.nombre))}</a>`).join("");
+  $("carta").innerHTML =
+    (BAR.destacado ? `<div class="dest"><b>${esc(t(BAR.destacado.titulo))}</b><span>${esc(t(BAR.destacado.texto))}</span></div>` : "") +
+    `<div class="buscar"><input id="q" type="search" placeholder="${esc(ui("buscar"))}" aria-label="${esc(ui("buscar"))}"></div>` +
+    BAR.categorias.map((k, i) => `<section id="c${i}"><h2>${esc(t(k.nombre))}</h2>` + (k.nota ? `<p class="nota">${esc(t(k.nota))}</p>` : "") +
+      k.platos.map(p => {
+        (p.alergenos || []).forEach(a => usados.add(a));
+        const q = (t(p.nombre) + " " + t(p.desc)).toLowerCase();
+        return `<div class="plato${p.agotado ? " agotado" : ""}" data-q="${esc(q)}"><div class="t"><b>${esc(t(p.nombre))}</b>` +
+          (p.desc ? `<span class="d">${esc(t(p.desc))}</span>` : "") +
+          (p.agotado ? `<span class="tag">${esc(ui("agotado"))}</span>` : "") +
+          (p.etiquetas || []).map(e => `<span class="tag">${esc(typeof e === "string" ? (UI.es[e] ? ui(e) : e) : t(e))}</span>`).join("") +
+          ((p.alergenos || []).length ? `<div class="al">` + p.alergenos.map(a => `<span title="${esc(al(a))}" aria-label="${esc(al(a))}">${ALER[a] ? ALER[a].i : "•"}</span>`).join("") + `</div>` : "") +
+          `</div><div class="pr">${precio(p)}</div>` + (p.foto ? `<img src="${esc(p.foto)}" alt="" loading="lazy">` : "") + `</div>`;
+      }).join("") + `</section>`).join("") +
+    `<p class="vacio" id="vacio">${esc(ui("vacio"))}</p>` +
+    (usados.size || BAR.aviso ? `<details class="leyenda"><summary>${esc(ui("aler"))}</summary>` +
+      (usados.size ? `<ul>` + [...usados].map(a => `<li>${ALER[a] ? ALER[a].i : "•"} ${esc(al(a))}</li>`).join("") + `</ul>` : "") +
+      (BAR.aviso ? `<p>${esc(t(BAR.aviso))}</p>` : "") + `</details>` : "");
+  const hoy = new Date().getDay();
+  const filas = BAR.horario ? [1, 2, 3, 4, 5, 6, 0].map(d => {
+    const r = BAR.horario[d] || [], n = new Intl.DateTimeFormat(lang, { weekday: "long" }).format(new Date(2024, 0, 7 + d));
+    return `<tr class="${d === hoy ? "hoy" : ""}"><td>${esc(n)}</td><td>${r.length ? r.map(x => x[0] + "–" + x[1]).join(" · ") : esc(ui("cerrado").replace(/\s*(ahora|now|jetzt)\s*/i, ""))}</td></tr>`;
+  }).join("") : "";
+  $("pie").innerHTML = `<h2>${esc(ui("donde"))}</h2>` + (c.direccion ? `<p>${esc(c.direccion)}</p>` : "") +
+    (filas ? `<table class="hor" aria-label="${esc(ui("horario"))}">${filas}</table>` : "") + `<div class="btns">` +
+    (c.mapa ? `<a class="main" href="${esc(c.mapa)}" rel="noopener">${esc(ui("ir"))}</a>` : "") +
+    (c.whatsapp ? `<a href="https://wa.me/${esc(c.whatsapp)}" rel="noopener">${esc(ui("wa"))}</a>` : "") +
+    (c.telefono ? `<a href="tel:${esc(c.telefono)}">${esc(ui("llamar"))}</a>` : "") +
+    (c.instagram ? `<a href="${esc(c.instagram)}" rel="noopener">${esc(ui("ig"))}</a>` : "") +
+    `</div><p class="cred">Carta digital por <a href="#">Ola Digital</a></p>`;
+  document.querySelectorAll(".idiomas button").forEach(b => b.onclick = () => { lang = b.dataset.l; pintar(); });
+  $("q").oninput = e => {
+    const v = e.target.value.trim().toLowerCase(); let n = 0;
+    document.querySelectorAll(".plato").forEach(p => { const ok = !v || p.dataset.q.includes(v); p.style.display = ok ? "" : "none"; if (ok) n++; });
+    document.querySelectorAll("section").forEach(s => s.style.display = [...s.querySelectorAll(".plato")].some(p => p.style.display !== "none") ? "" : "none");
+    $("vacio").style.display = n ? "none" : "block";
+  };
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) document.querySelectorAll("#nav a").forEach(a => { const on = a.getAttribute("href") === "#" + e.target.id; a.classList.toggle("on", on); if (on) a.scrollIntoView({ block: "nearest", inline: "center" }); }); }), { rootMargin: "-30% 0px -65% 0px" });
+  document.querySelectorAll("section").forEach(s => io.observe(s));
+}
+pintar();
+/* ---- Carta editable desde una hoja de Google (CSV publicado) ---- */
+function csv(t) {
+  const r = []; let f = "", row = [], q = false;
+  for (let i = 0; i < t.length; i++) {
+    const c = t[i];
+    if (q) { if (c === '"') { if (t[i + 1] === '"') { f += '"'; i++; } else q = false; } else f += c; }
+    else if (c === '"') q = true;
+    else if (c === ",") { row.push(f); f = ""; }
+    else if (c === "\n" || c === "\r") { if (c === "\r" && t[i + 1] === "\n") i++; row.push(f); r.push(row); row = []; f = ""; }
+    else f += c;
+  }
+  if (f || row.length) { row.push(f); r.push(row); }
+  return r;
+}
+const norm = s => String(s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+const ALK = Object.fromEntries(Object.entries(ALER).flatMap(([k, v]) => [[k, k], [norm(v.es), k]]));
+function desdeHoja(txt) {
+  const filas = csv(txt).filter(r => r.some(x => x.trim())), h = filas.shift().map(norm);
+  const get = (r, base) => { const o = {}; BAR.idiomas.forEach(l => { const i = h.indexOf(l === "es" ? base : base + "_" + l); if (i > -1 && r[i] && r[i].trim()) o[l] = r[i].trim(); }); return o; };
+  const vacio = o => !Object.keys(o).length;
+  const cats = [], idx = {}; let dest = null;
+  filas.forEach(r => {
+    const cat = get(r, "categoria"), key = norm(cat.es || Object.values(cat)[0]), nom = get(r, "plato");
+    if (key === "#hoy") { if (!vacio(nom)) dest = { titulo: nom, texto: get(r, "desc") }; return; }
+    if (!key || vacio(nom)) return;
+    if (!(key in idx)) { idx[key] = cats.length; cats.push({ nombre: cat, platos: [] }); }
+    const v = n => { const i = h.indexOf(n); return i > -1 ? (r[i] || "").trim() : ""; }, d = get(r, "desc"), pr = v("precios");
+    const p = { nombre: nom, desc: vacio(d) ? null : d, precio: v("precio"), foto: v("foto"),
+      agotado: ["si", "x", "1", "true", "yes", "ja"].includes(norm(v("agotado"))),
+      etiquetas: v("etiquetas").split(/[,;]/).map(norm).filter(Boolean),
+      alergenos: v("alergenos").split(/[,;]/).map(s => ALK[norm(s)]).filter(Boolean) };
+    if (pr) p.precios = pr.split(";").map(x => { const a = x.split(":"); return [a[0].trim(), (a[1] || "").trim()]; });
+    cats[idx[key]].platos.push(p);
+  });
+  return { cats, dest };
+}
+if (BAR.hoja) {
+  fetch(BAR.hoja + (BAR.hoja.includes("?") ? "&" : "?") + "t=" + Date.now())
+    .then(r => { if (!r.ok) throw 0; return r.text(); })
+    .then(t => { const d = desdeHoja(t); if (d.cats.length) { BAR.categorias = d.cats; BAR.destacado = d.dest; pintar(); } })
+    .catch(() => {});
+}
+if (BAR.supabase && BAR.supabase.url) {
+  const s = BAR.supabase, slug = new URLSearchParams(location.search).get("bar") || s.slug;
+  fetch(`${s.url}/rest/v1/cartas?slug=eq.${encodeURIComponent(slug)}&select=data`, { headers: { apikey: s.key } })
+    .then(r => { if (!r.ok) throw 0; return r.json(); })
+    .then(a => { const d = a[0] && a[0].data; if (d && d.categorias && d.categorias.length) { BAR.categorias = d.categorias; BAR.destacado = d.destacado || null; pintar(); } })
+    .catch(() => {});
+}
+/* Datos para Google (SEO) */
+const ld = document.createElement("script"); ld.type = "application/ld+json";
+ld.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "Restaurant", name: BAR.nombre, address: BAR.contacto.direccion, telephone: BAR.contacto.telefono, url: BAR.contacto.web || undefined });
+document.head.appendChild(ld);
+</script>
+</body>
+</html>
