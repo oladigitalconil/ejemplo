@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Panel · La Cala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F3FA;--ink:#0F1536;--mute:#6B7390;--line:#E6E8F2;--blue:#1747E8;--navy:#0A1A5C;--sun:#FFD23F;--tom:#FF5A36;font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);line-height:1.5;min-height:100vh;background:radial-gradient(900px 420px at 100% -10%,#DCE5FF,transparent 60%),var(--bg)}[hidden]{display:none!important}
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.tw{max-width:1000px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:18px}
+.bd{display:flex;align-items:center;gap:10px}.bd i{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--sun),var(--tom));box-shadow:inset 0 0 0 3px rgba(255,255,255,.5)}.bd b{font:800 18px "Bricolage Grotesque",system-ui,sans-serif;color:var(--navy)}.bd span{font-size:12px;font-weight:700;background:#EEF1FF;color:var(--blue);border-radius:999px;padding:3px 9px}
+.tabs{display:flex;gap:4px;background:#EEF0F8;border-radius:999px;padding:4px;margin:0 auto}.tb{border:0;background:transparent;border-radius:999px;padding:8px 18px;font-family:inherit;font-weight:700;font-size:14.5px;color:var(--mute);cursor:pointer}.tb em{font-style:normal;font-size:12px;background:#fff;border-radius:999px;padding:1px 8px;margin-left:6px;color:var(--navy)}.tb.on{background:var(--navy);color:#fff}.tb.on em{background:rgba(255,255,255,.2);color:#fff}
+.ta{margin-left:auto;display:flex;align-items:center;gap:10px}.lk{font-weight:700;color:var(--blue);text-decoration:none;font-size:14.5px}
+.w{max-width:1000px;margin:0 auto;padding:26px 22px 90px}
+.card{background:#fff;border-radius:28px;padding:28px;margin-bottom:20px;box-shadow:0 1px 0 var(--line),0 24px 50px -34px rgba(10,26,92,.35)}
+h2{margin:0 0 4px;font:800 26px "Bricolage Grotesque",system-ui,sans-serif;color:var(--navy);letter-spacing:-.02em}p.s{color:var(--mute);margin:0 0 18px}.n{color:var(--mute)}code{background:#EEF1FB;padding:1px 6px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--tom);color:#fff;border:0;border-radius:14px;padding:12px 20px;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;transition:transform .15s,box-shadow .15s}.btn:hover{transform:translateY(-1px);box-shadow:0 10px 20px -12px rgba(10,26,92,.6)}
+.btn.s{padding:8px 14px;font-size:13.5px;border-radius:12px}.btn.g{background:#EEF0F8;color:var(--navy)}.btn.n{background:var(--navy);color:#fff}.btn:disabled{opacity:.5;cursor:not-allowed}
+label.f{display:block;font-size:14px;font-weight:700;margin-top:14px;text-align:left}
+input[type=email],input[type=password],input.t{width:100%;margin-top:6px;padding:12px 14px;border:1.5px solid var(--line);border-radius:14px;font:inherit;background:#FAFBFF;transition:border-color .15s,box-shadow .15s}
+input:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 4px rgba(23,71,232,.12)}
+.lgc{max-width:440px;margin:56px auto;text-align:center}.lgc .bd{justify-content:center;margin-bottom:18px}.lgc h2{margin-bottom:6px}
+#slots{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.sl{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}
+.ph{aspect-ratio:16/9;background:repeating-linear-gradient(45deg,#F4F6FD,#F4F6FD 10px,#EEF1FB 10px,#EEF1FB 20px);display:grid;place-items:center;color:var(--mute);transition:box-shadow .2s}.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph.over,.dz.over{box-shadow:inset 0 0 0 3px var(--blue)}.em{display:grid;justify-items:center;gap:8px;font-size:13.5px;text-align:center;padding:12px}.em svg,.dz svg{width:32px;height:32px;stroke:var(--blue)}
+.sb{padding:14px 16px 16px}.sb b{display:block;margin-bottom:10px}.r{display:flex;gap:8px;flex-wrap:wrap}
+.dz{display:grid;justify-items:center;gap:4px;border:2px dashed #C9D2F5;border-radius:22px;padding:28px;text-align:center;cursor:pointer;background:#F8FAFF;color:var(--mute);transition:.15s}.dz:hover{border-color:var(--blue);background:#F1F5FF}.dz b{color:var(--navy);font-size:17px}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:16px}.gi{position:relative;border-radius:18px;overflow:hidden}.gi img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.gi button{position:absolute;top:8px;right:8px;width:32px;height:32px;border-radius:50%;border:0;background:rgba(10,26,92,.85);color:#fff;font-size:18px;cursor:pointer;opacity:0;transition:opacity .15s}.gi:hover button{opacity:1}@media(hover:none){.gi button{opacity:1}}
+.cb{border:1px solid var(--line);border-radius:22px;padding:18px;margin-top:16px;background:#FCFCFF}
+.cm{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.cm input.t{width:auto;margin:0}.cm input.ci{flex:1;min-width:150px;font:800 18px "Bricolage Grotesque",system-ui,sans-serif;border-color:transparent;background:transparent}.cm input.ci:hover,.cm input.ci:focus{background:#fff;border-color:var(--line)}
+.pd{display:grid;gap:8px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;margin-top:10px}.pd .gr{display:grid;grid-template-columns:1fr 110px;gap:8px}.pd .t{margin:0}.pd details{margin:0}.pd .r{align-items:center;margin:2px 0 0!important}
+.pd label{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;background:#F2F4FB;border-radius:999px;padding:6px 12px;cursor:pointer}.pd label:has(input:checked){background:#DFF7EA;color:#0B6B3A}
+details summary{cursor:pointer;color:var(--mute);font-size:13.5px;font-weight:600;margin-top:8px}.cb details .t{margin-top:8px}.cb.shut .pd,.cb.shut>p,.cb.shut>details{display:none}
+#msg{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);max-width:min(560px,92vw);margin:0;padding:14px 20px;border-radius:16px;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:60;box-shadow:0 18px 40px -16px rgba(0,0,0,.5)}
+#msg.ok,#msg.bad{opacity:1;transform:translate(-50%,0)}#msg.ok{background:var(--navy);color:#fff}#msg.bad{background:#B42318;color:#fff}
+@media(max-width:700px){.tw{flex-wrap:wrap;gap:10px}.tabs{order:3;width:100%;margin:0}.tb{flex:1}#slots{grid-template-columns:1fr}.card{padding:20px;border-radius:24px}.pd .gr{grid-template-columns:1fr 90px}}
+</style></head><body>
+<header class="top"><div class="tw"><div class="bd"><i></i><b>La Cala</b><span>Panel</span></div>
+<nav class="tabs" id="tabs" hidden><button class="tb on" data-v="fotos">Fotos <em id="nf">0</em></button><button class="tb" data-v="carta">Carta <em id="nc">0</em></button></nav>
+<div class="ta"><a class="lk" href="index.html" target="_blank" rel="noopener">Ver la web ↗</a><button class="btn s g" id="out" hidden>Salir</button></div></div></header>
+<main class="w">
+<section class="card lgc" id="lg"><div class="bd"><i></i><b>La Cala</b><span>Panel</span></div><h2>Entrar</h2><p class="s" id="lgs">Usa el correo y la contraseña que creaste en Supabase.</p>
+<label class="f">Correo<input type="email" id="em" autocomplete="username"></label><label class="f">Contraseña<input type="password" id="pw" autocomplete="current-password"></label>
+<p style="margin:20px 0 0"><button class="btn n" id="in" style="width:100%">Entrar</button></p></section>
+<div id="app" hidden>
+<div id="v-fotos">
+<section class="card"><h2>Fotos de la web</h2><p class="s">Fotos horizontales y con buena luz. Se reducen solas para que la web cargue rápido y se ven al momento.</p><div id="slots"></div></section>
+<section class="card"><h2>Galería</h2><p class="s">Las fotos que añadas aquí aparecen en la sección «Galería» de la web.</p>
+<label class="dz" data-drop="gin"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V5m0 0l-4 4m4-4l4 4M5 19h14"/></svg><b>Añadir fotos</b><span>Arrastra varias aquí o pulsa para elegirlas</span><input type="file" id="gin" accept="image/*" multiple hidden></label><div class="gal" id="gal"></div></section>
+</div>
+<div id="v-carta" hidden><section class="card"><h2>Carta</h2><p class="s">Cambia platos, precios y descripciones; se ven en la carta de la web al momento. Las traducciones son opcionales: si las dejas vacías, se ve el texto en español.</p><div id="cartaBox"></div><p style="margin-top:18px"><button class="btn n" data-act="cadd">+ Añadir sección</button></p></section></div>
+</div>
+</main>
+<p id="msg" role="status"></p>
+<script src="config.js"></script>
+<script>
+const $=s=>document.querySelector(s),LS=localStorage,U=(window.SB||{}).url,K=(window.SB||{}).key;
+const SL=[["hero","Portada (la foto grande de arriba)"],["atun","Plato: Atún rojo de almadraba"],["arroz","Plato: Arroz de pescado y huerta"],["fritura","Plato: Fritura de pescado"]];
+let S=JSON.parse(LS.getItem("sbs")||"null"),rows=[];
+function msg(t,bad){const m=$("#msg");m.textContent=t;m.className=bad?"bad":"ok";clearTimeout(msg.t);msg.t=setTimeout(()=>{m.className=""},bad?7000:3500)}
+async function auth(body,grant){const r=await fetch(U+"/auth/v1/token?grant_type="+grant,{method:"POST",headers:{apikey:K,"Content-Type":"application/json"},body:JSON.stringify(body)});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(r.status===400?"Correo o contraseña incorrectos.":"No se pudo iniciar sesión ("+r.status+").");S={access:j.access_token,refresh:j.refresh_token,exp:Date.now()+(j.expires_in||3600)*1000-60000};LS.setItem("sbs",JSON.stringify(S))}
+async function tok(){if(!S)throw new Error("Entra primero con tu correo y contraseña.");if(Date.now()>S.exp){try{await auth({refresh_token:S.refresh},"refresh_token")}catch(e){S=null;LS.removeItem("sbs");show();throw new Error("La sesión ha caducado. Entra de nuevo.")}}return S.access}
+async function api(path,opt){opt=opt||{};const t=await tok();const r=await fetch(U+path,Object.assign({},opt,{headers:Object.assign({apikey:K,Authorization:"Bearer "+t},opt.headers||{})}));if(!r.ok){let m="";try{m=(await r.json()).message||""}catch(e){}throw new Error(r.status===401||r.status===403?"No tienes permiso para guardar. Revisa que ejecutaste el script SQL y que entras con el correo autorizado.":"Error "+r.status+(m?": "+m:""))}return r}
+function shrink(file,max=1600){return new Promise((res,rej)=>{const i=new Image();i.onload=()=>{const k=Math.min(1,max/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=Math.round(i.width*k);c.height=Math.round(i.height*k);c.getContext("2d").drawImage(i,0,0,c.width,c.height);c.toBlob(b=>b?res(b):rej(new Error("No se pudo procesar esa foto.")),"image/jpeg",.82)};i.onerror=()=>rej(new Error("No se pudo leer esa foto. Prueba con una foto JPG o PNG."));i.src=URL.createObjectURL(file)})}
+async function up(file,slot){const b=await shrink(file),path=slot+"/"+Date.now()+"-"+Math.random().toString(36).slice(2,7)+".jpg";await api("/storage/v1/object/fotos/"+path,{method:"POST",headers:{"Content-Type":"image/jpeg"},body:b});const url=U+"/storage/v1/object/public/fotos/"+path;await api("/rest/v1/fotos",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({slot,url,path})})}
+async function del(row){await api("/rest/v1/fotos?id=eq."+row.id,{method:"DELETE"});try{await api("/storage/v1/object/fotos/"+row.path,{method:"DELETE"})}catch(e){}}
+async function load(){rows=await(await api("/rest/v1/fotos?select=*&order=orden.asc")).json();render();await loadCarta()}
+function cur(k){const a=rows.filter(r=>r.slot===k);return a[a.length-1]}
+function render(){
+ $("#slots").innerHTML=SL.map(([k,l])=>{const p=cur(k);return '<div class="sl"><div class="ph">'+(p?'<img src="'+p.url+'" alt="">':'<span>Sin foto</span>')+'</div><b>'+l+'</b><div class="r"><label class="btn s">'+(p?"Cambiar":"Subir foto")+'<input type="file" accept="image/*" hidden data-slot="'+k+'"></label>'+(p?'<button class="btn s g" data-del="'+k+'">Quitar</button>':"")+'</div></div>'}).join("");
+ const g=rows.filter(r=>r.slot==="galeria");$("#gal").innerHTML=g.map(r=>'<div class="gi"><img src="'+r.url+'" alt=""><button data-gdel="'+r.id+'" aria-label="Quitar">×</button></div>').join("")||'<p class="n">Todavía no hay fotos en la galería.</p>'}
+function show(){const on=!!S;$("#lg").hidden=on;$("#app").hidden=!on;$("#out").hidden=!on;$("#tabs").hidden=!on}
+async function start(){if(!U||!K){$("#lgs").textContent="Falta conectar Supabase: hay que rellenar el archivo config.js con la dirección y la clave del proyecto.";$("#in").disabled=true;return}show();if(S)try{await load()}catch(e){msg(e.message,1)}}
+$("#in").onclick=async()=>{try{await auth({email:$("#em").value.trim(),password:$("#pw").value},"password");show();await load();msg("Dentro. Ya puedes subir fotos.")}catch(e){msg(e.message,1)}};
+$("#out").onclick=()=>{S=null;LS.removeItem("sbs");show();msg("Has salido del panel.")};
+document.addEventListener("change",async e=>{const t=e.target;if(!t.matches("input[type=file]")||!t.files.length)return;const fs=[...t.files];t.value="";
+ try{msg("Subiendo… no cierres esta página.");if(t.id==="gin"){for(const f of fs)await up(f,"galeria")}else{const k=t.dataset.slot,old=rows.filter(r=>r.slot===k);await up(fs[0],k);for(const o of old)await del(o)}await load();msg("Listo. Ya se ve en la web.")}catch(err){msg(err.message,1)}});
+document.addEventListener("click",async e=>{const b=e.target.closest("button");if(!b)return;const k=b.dataset.del,g=b.dataset.gdel;if(k===undefined&&g===undefined)return;
+ try{msg("Guardando…");for(const r of rows.filter(r=>k!==undefined?r.slot===k:r.id===g))await del(r);await load();msg("Listo. Ya se ve en la web.")}catch(err){msg(err.message,1)}});
+let CC=[],PP=[];const J={"Content-Type":"application/json"};
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+async function loadCarta(){try{CC=await(await api("/rest/v1/carta_categorias?select=*&order=orden.asc")).json();PP=await(await api("/rest/v1/carta_platos?select=*&order=orden.asc")).json();renderCarta()}catch(e){$("#cartaBox").innerHTML='<p class="n">No se pudo cargar la carta. Si es la primera vez, ejecuta el script <code>supabase_carta.sql</code> en Supabase. ('+esc(e.message)+')</p>'}}
+function renderCarta(){$("#cartaBox").innerHTML=CC.map(c=>'<div class="cb" data-c="'+c.id+'"><div class="cm"><input class="t ci" data-f="es" value="'+esc(c.es)+'" placeholder="Nombre de la sección"><button class="btn s" data-act="csave">Guardar</button><button class="btn s g" data-act="cup" aria-label="Subir">↑</button><button class="btn s g" data-act="cdown" aria-label="Bajar">↓</button><button class="btn s g" data-act="cdel">Borrar sección</button></div><details><summary>Traducciones de la sección</summary><div class="cm" style="margin-top:8px"><input class="t" data-f="en" value="'+esc(c.en)+'" placeholder="English"><input class="t" data-f="de" value="'+esc(c.de)+'" placeholder="Deutsch"></div></details>'+PP.filter(p=>p.categoria_id===c.id).map(p=>'<div class="pd" data-d="'+p.id+'"><div class="gr"><input class="t" data-f="nombre" value="'+esc(p.nombre)+'" placeholder="Nombre del plato"><input class="t" data-f="precio" value="'+esc(p.precio)+'" placeholder="0,00"></div><input class="t" data-f="desc_es" value="'+esc(p.desc_es)+'" placeholder="Descripción (opcional)" style="margin-top:8px"><details><summary>Traducciones</summary><input class="t" data-f="desc_en" value="'+esc(p.desc_en)+'" placeholder="English"><input class="t" data-f="desc_de" value="'+esc(p.desc_de)+'" placeholder="Deutsch"></details><p class="r" style="margin:10px 0 0;align-items:center"><label><input type="checkbox" data-f="recomendado"'+(p.recomendado?" checked":"")+'> Recomendado</label><label><input type="checkbox" data-f="agotado"'+(p.agotado?" checked":"")+'> Agotado</label><button class="btn s" data-act="dsave">Guardar</button><button class="btn s g" data-act="dup" aria-label="Subir">↑</button><button class="btn s g" data-act="ddown" aria-label="Bajar">↓</button><button class="btn s g" data-act="ddel">Borrar</button></p></div>').join("")+'<p style="margin:12px 0 0"><button class="btn s n" data-act="dadd">+ Añadir plato</button></p></div>').join("")||'<p class="n">Todavía no hay secciones.</p>'}
+async function swap(list,id,dir,table,same){const l=list.filter(same).sort((x,y)=>x.orden-y.orden),i=l.findIndex(x=>x.id===id),j=i+dir;if(j<0||j>=l.length)return;const a=l[i],b=l[j];let na=b.orden,nb=a.orden;if(na===nb)na+=dir;
+ await api("/rest/v1/"+table+"?id=eq."+a.id,{method:"PATCH",headers:J,body:JSON.stringify({orden:na})});await api("/rest/v1/"+table+"?id=eq."+b.id,{method:"PATCH",headers:J,body:JSON.stringify({orden:nb})})}
+document.addEventListener("click",async e=>{const b=e.target.closest("button[data-act]");if(!b)return;const a=b.dataset.act,cb=b.closest("[data-c]"),pd=b.closest("[data-d]");if(a==="ctoggle"){cb.classList.toggle("shut");return}
+ const val=el=>{const o={};el.querySelectorAll("[data-f]").forEach(i=>o[i.dataset.f]=i.type==="checkbox"?i.checked:i.value.trim());return o};
+ try{
+  if(a==="csave"){const o=Object.assign(val(cb.children[0]),val(cb.children[1]));if(!o.es)throw new Error("La sección necesita un nombre.");o.en=o.en||null;o.de=o.de||null;await api("/rest/v1/carta_categorias?id=eq."+cb.dataset.c,{method:"PATCH",headers:J,body:JSON.stringify(o)})}
+  else if(a==="cdel"){if(!confirm("¿Borrar la sección y todos sus platos?"))return;await api("/rest/v1/carta_categorias?id=eq."+cb.dataset.c,{method:"DELETE"})}
+  else if(a==="cup"||a==="cdown")await swap(CC,cb.dataset.c,a==="cup"?-1:1,"carta_categorias",()=>true);
+  else if(a==="dadd"){const l=PP.filter(p=>p.categoria_id===cb.dataset.c);await api("/rest/v1/carta_platos",{method:"POST",headers:J,body:JSON.stringify({categoria_id:cb.dataset.c,orden:l.length?Math.max(...l.map(p=>p.orden))+1:1,nombre:"Nuevo plato",precio:"0,00"})})}
+  else if(a==="dsave"){const o=val(pd);if(!o.nombre)throw new Error("El plato necesita un nombre.");["precio","desc_es","desc_en","desc_de"].forEach(k=>o[k]=o[k]||null);await api("/rest/v1/carta_platos?id=eq."+pd.dataset.d,{method:"PATCH",headers:J,body:JSON.stringify(o)})}
+  else if(a==="ddel"){if(!confirm("¿Borrar este plato?"))return;await api("/rest/v1/carta_platos?id=eq."+pd.dataset.d,{method:"DELETE"})}
+  else if(a==="dup"||a==="ddown"){const p=PP.find(x=>x.id===pd.dataset.d);await swap(PP,p.id,a==="dup"?-1:1,"carta_platos",x=>x.categoria_id===p.categoria_id)}
+  else if(a==="cadd"){const n=prompt("Nombre de la nueva sección (por ejemplo: Postres)");if(!n||!n.trim())return;await api("/rest/v1/carta_categorias",{method:"POST",headers:J,body:JSON.stringify({es:n.trim(),orden:CC.length?Math.max(...CC.map(c=>c.orden))+1:1})})}
+  await loadCarta();msg("Listo. Ya se ve en la carta de la web.")}catch(err){msg(err.message,1)}});
+
+const CAMSVG='<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>';
+const _r=render;render=function(){_r();
+ $("#slots").innerHTML=SL.map(([k,l])=>{const p=cur(k);return '<div class="sl"><div class="ph" data-drop="'+k+'">'+(p?'<img src="'+p.url+'" alt="">':'<div class="em">'+CAMSVG+'<span>Arrastra una foto aquí<br>o pulsa «Subir foto»</span></div>')+'</div><div class="sb"><b>'+l+'</b><div class="r"><label class="btn s">'+(p?"Cambiar foto":"Subir foto")+'<input type="file" accept="image/*" hidden data-slot="'+k+'"></label>'+(p?'<button class="btn s g" data-del="'+k+'">Quitar</button>':"")+'</div></div></div>'}).join("");
+ $("#nf").textContent=SL.filter(([k])=>cur(k)).length+rows.filter(r=>r.slot==="galeria").length};
+const _rc=renderCarta;renderCarta=function(){_rc();$("#nc").textContent=PP.length;document.querySelectorAll(".cb>.cm").forEach(m=>m.insertAdjacentHTML("afterbegin",'<button class="btn s g" data-act="ctoggle" aria-label="Plegar sección">▾</button>'))};
+function tab(v){["fotos","carta"].forEach(x=>{$("#v-"+x).hidden=x!==v});document.querySelectorAll(".tb").forEach(b=>b.classList.toggle("on",b.dataset.v===v))}
+document.querySelectorAll(".tb").forEach(b=>b.onclick=()=>tab(b.dataset.v));
+document.addEventListener("dragover",e=>{const z=e.target.closest("[data-drop]");if(z){e.preventDefault();z.classList.add("over")}});
+document.addEventListener("dragleave",e=>{const z=e.target.closest("[data-drop]");if(z)z.classList.remove("over")});
+document.addEventListener("drop",e=>{const z=e.target.closest("[data-drop]");if(!z)return;e.preventDefault();z.classList.remove("over");const k=z.dataset.drop,inp=k==="gin"?$("#gin"):document.querySelector('input[data-slot="'+k+'"]');if(!inp||!e.dataTransfer.files.length)return;inp.files=e.dataTransfer.files;inp.dispatchEvent(new Event("change",{bubbles:true}))});
+
+start();
+</script></body></html>
